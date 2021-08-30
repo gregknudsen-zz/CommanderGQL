@@ -10,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using CommanderQQL.Data;
+using CommanderGQL.GraphQL;
 
 namespace CommanderGQL
 {
@@ -26,6 +27,10 @@ namespace CommanderGQL
             services.AddDbContext<AppDbContext>(opt =>
                 opt.UseSqlServer(ConfigurationBinder.GetConnectionString("CommandConStr"))
             );
+
+            services
+                .AddGraphQLServer()
+                .AddQueryType<Query>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,10 +45,7 @@ namespace CommanderGQL
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapGraphQL();
             });
         }
     }
