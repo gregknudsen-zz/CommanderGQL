@@ -1,6 +1,6 @@
 using System.Linq;
 using CommanderGQL.Models;
-using CommanderQQL.Data;
+using CommanderGQL.Data;
 using HotChocolate;
 
 namespace CommanderGQL.GraphQL

@@ -1,7 +1,7 @@
 using CommanderGQL.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace CommanderQQL.Data
+namespace CommanderGQL.Data
 {
   public class AppDbContext: DbContext
   {
