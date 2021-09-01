@@ -26,7 +26,7 @@ namespace CommanderGQL.Data
             .WithMany(p => p.Commands)
             .HasForeignKey(p => p.PlatformId);
     }
-    
-    
+
+
   }
 }
