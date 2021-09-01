@@ -12,7 +12,7 @@ namespace CommanderGQL.Models
 
         [Required]
         public string CommandLine { get; set; }
-        
+
         [Required]
         public int PlatformId { get; set; }
 
