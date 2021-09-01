@@ -1,3 +1,5 @@
+using System;
+using System.ComponentModel.Design;
 using System.Linq;
 using CommanderGQL.Models;
 using CommanderGQL.Data;
@@ -12,6 +14,12 @@ namespace CommanderGQL.GraphQL
         public IQueryable<Platform> GetPlatform([ScopedService] AppDbContext context)
         {
             return context.Platforms;
+        }
+        [UseDbContext(typeof(AppDbContext))]
+        [UseProjection]
+        public IQueryable<Command> GetCommand([ScopedService] AppDbContext context)
+        {
+            return context.Commands;
         }
     }
 }
